@@ -1,0 +1,54 @@
+{
+    "version": 1,
+    "author": "Anis Boubaker",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -129.7, "left": -43.4, "attrs": {} },
+      { "type": "board-ssd1306", "id": "oled1", "top": -54.46, "left": 153.83, "attrs": {} },
+      { "type": "wokwi-servo", "id": "servo1", "top": -40.4, "left": -336, "attrs": {} },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": -253,
+        "left": -124.8,
+        "attrs": { "color": "green" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn2",
+        "top": -253,
+        "left": -9.6,
+        "attrs": { "color": "green", "bounce": "1" }
+      },
+      { "type": "wokwi-servo", "id": "servo2", "top": -155.6, "left": -336, "attrs": {} },
+      { "type": "wokwi-servo", "id": "servo3", "top": 65.2, "left": -345.6, "attrs": {} },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn3",
+        "top": -253,
+        "left": 86.4,
+        "attrs": { "color": "green" }
+      },
+      { "type": "wokwi-vcc", "id": "vcc1", "top": -469.64, "left": -86.4, "attrs": {} },
+      { "type": "wokwi-gnd", "id": "gnd1", "top": 66.55, "left": -508.21, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc2", "top": -92.85, "left": -471.58, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+      [ "oled1:GND", "esp:GND.1", "black", [ "v-9.6", "h-86.4", "v76.9" ] ],
+      [ "oled1:VCC", "esp:3V3", "red", [ "h-76.65", "v76.8" ] ],
+      [ "oled1:SCL", "esp:D22", "green", [ "v0" ] ],
+      [ "oled1:SDA", "esp:D21", "green", [ "v0" ] ],
+      [ "servo2:PWM", "esp:D32", "orange", [ "v29", "h297.6" ] ],
+      [ "servo1:PWM", "esp:D33", "orange", [ "h-9.6", "v-57.4", "h288", "v-19.2" ] ],
+      [ "servo3:PWM", "esp:D25", "orange", [ "v19.4", "h268.8", "v-173.2", "h28.8", "v-18.8" ] ],
+      [ "gnd1:GND", "servo3:GND", "black", [ "h19.28", "v48.65" ] ],
+      [ "vcc2:VCC", "servo2:V+", "red", [ "h19.29", "v-31.29" ] ],
+      [ "vcc2:VCC", "servo1:V+", "red", [ "v0" ] ],
+      [ "vcc2:VCC", "servo3:V+", "red", [ "v0" ] ],
+      [ "gnd1:GND", "servo1:GND", "black", [ "v0" ] ],
+      [ "gnd1:GND", "servo2:GND", "black", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
